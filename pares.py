@@ -8,16 +8,22 @@ elementos, inclua a string vazia como segundo elemento do par final
 * lst: 1
 """
 
-else:
-    for i in range(0, n, 2):
-        for x, y in pares:
-            if i == n - 1:
-                n = len(pares)
-                n = len(strings)
-                pares = []
-                pares.append([x, y])
-                print(x, y)
-                strings = input("lst: ").split(",")
-                x = strings[i]
-                y = ""
-                y = strings[i + 1]
+frase = input(">>> ").lower()
+
+freqs = {}
+for c in frase:
+    freqs[c] = freqs.get(c, 0) + 1
+def key_fn(par):
+    letra, n = par
+    return n
+    
+pares = sorted(freqs.items(), key=key_fn)
+pares = pares.reverse()
+    
+for c, n in pares:
+    print(f"{c!r}: {n}")
+    
+#return -n
+#return n, letra
+#return -n, letra
+#pares.reverse()
